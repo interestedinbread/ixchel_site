@@ -1,5 +1,15 @@
 const contentContainer = document.querySelector(".content-container");
 
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('nav');
+
+  if(window.scrollY > 50){
+    navbar.classList.add('shrink');
+  } else {
+    navbar.classList.remove('shrink');
+  }
+})
+
 window.addEventListener('DOMContentLoaded', () => {
 
 let currentSlide = 0;
