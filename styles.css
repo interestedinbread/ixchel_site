@@ -1,0 +1,249 @@
+@font-face {
+    font-family: "Jungle Fever";
+    src: url("fonts/JungleFeverNF.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins Bold";
+    src: url("fonts/Poppins-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins"
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(94, 230, 79);
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgb(255, 246, 74);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.nav-links li {
+    list-style-type: none;
+}
+
+.nav-links {
+    margin-top: 45px;
+    margin-left: -30px;
+    display: flex;
+    flex-direction: column;
+    height: 0px;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(94, 230, 79);
+    transition: height 0.2s ease-in-out;
+    z-index: 2;
+}
+
+.nav-links.active {
+    height: 120px;
+}
+
+.menu-icon {
+    height: 30px;
+    width: 30px;
+    background: none;
+    border: none;
+    margin-left: 10px;
+    margin-top: 7px;
+    transition: transform 0.15s ease-in-out;
+}
+
+.menu-icon.active {
+    transform: rotate(180deg);
+}
+
+.ixchel-logo-container {
+    display: flex;
+    margin: 5px 10px;
+}
+
+.ixchel-logo {
+    font-family: "Jungle Fever";
+}
+
+.ix-container, .chel-container {
+    display: flex;
+}
+
+.chel-container {
+    margin-left: -2px;
+}
+
+.ix-container h1, .chel-container h1 {
+    padding: 0px 3px;
+}
+
+.i-text {
+    color: aqua;
+}
+
+.x-text {
+    color: rgb(255, 246, 74);
+}
+.c-text {
+    color: rgb(249, 102, 235);
+}
+.h-text {
+    color: aqua;
+}
+.e-text {
+    color: rgb(255, 246, 74);
+}
+.l-text {
+    color: rgb(249, 102, 235);
+}
+
+.i-text, .x-text, .c-text, .h-text, .e-text, .l-text {
+    font-size: 2rem;
+}
+
+.about-text {
+    font-family: "Poppins";
+}
+
+.slider-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slider-img:nth-child(1){
+    object-position: 70% center;
+}
+
+.slider-img:nth-child(2){
+    object-position: 100% center;
+}
+
+.slider-img.active{
+    opacity: 1;
+}
+
+.scroll-left-btn, .scroll-right-btn {
+    height: 30px;
+}
+
+button {
+    background: none;
+    border: none;
+    width: 50px;
+}
+
+.chevron-container-left {
+    position: absolute;
+    left: 10px;
+    top: 170px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.chevron-container-right {
+    position: absolute;
+    right: 10px;
+    top: 170px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.left-chevron, .right-chevron {
+    height: 30px;
+    width: 30px;
+}
+
+.section-border {
+    height: 2px;
+    background-color: rgb(94, 230, 79);
+    width: 90%;
+    margin: 10px auto;
+}
+
+.selection-section .section-border {
+    height: 2px;
+    background-color: rgb(94, 230, 79);
+    width: 90%;
+    margin: 10px auto 25px;
+   
+}
+
+.about-us-title, .selection-title, .welcome-title {
+    text-align: center;
+    font-family: "Poppins Bold";
+    margin-top: -10px;
+    margin-bottom: -10px;
+    color: rgb(249, 102, 235);
+}
+
+.about-us-text {
+    width: 90%;
+    margin: 20px auto 35px;
+    color:rgb(0, 129, 6)
+}
+.showcase-img-container {
+    width: 95%;
+    margin: 10px auto;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.showcase-image {
+    position: relative;
+    width: 150%;
+    transform: translateX(-25%);
+    transition: transform 0.2s ease-out;
+}
+
+#come-in.showcase-img-container {
+    height: 150px;
+    margin: 25px auto;
+}
+
+#come-in.showcase-image {
+    object-position: 25px -170px;
+}
+
+.selection-section h3 {
+    text-align: center;
+    font-family: "Poppins Bold";
+    margin-top: -10px;
+    margin-bottom: -10px;
+    color: rgb(249, 102, 235);
+}
