@@ -231,13 +231,22 @@ button {
     transition: transform 0.2s ease-out;
 }
 
+#beauty-products.showcase-image {
+    position: relative;
+    width: 150%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateX(-25%);
+    transition: transform 0.2s ease-out;
+}
+
 #come-in.showcase-img-container {
     height: 150px;
     margin: 25px auto;
 }
 
 #come-in.showcase-image {
-    object-position: 25px -170px;
+    object-position: 25px -230px;
 }
 
 .selection-section h3 {
