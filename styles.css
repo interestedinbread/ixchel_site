@@ -140,7 +140,7 @@ nav.shrink {
 }
 
 .slider-container {
-    width: 100%;
+    width: 105%;
     height: 400px;
     overflow: hidden;
     position: relative;
@@ -153,11 +153,25 @@ nav.shrink {
         transform: scale(1) translate(0, 0);
     }
     100% {
-        transform: scale(1.1) translate(10px, -10px)
+        transform: scale(1.015) translate(2px, 2px)
     }
 }
-
-
+@keyframes zoomPan2{ 
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.015) translate(-20px, 3px)
+    }
+}
+@keyframes zoomPan3{ 
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.015) translate(-1.5px, 2px)
+    }
+}
 
 .slider-img {
     width: 100%;
@@ -174,7 +188,7 @@ nav.shrink {
 }
 
 .slider-img:nth-child(2){
-    object-position: 100% center;
+    object-position: 5% center;
 }
 
 .slider-img.active{
