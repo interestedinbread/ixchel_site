@@ -61,12 +61,21 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       sliderImages.forEach((img) => {
-        img.classList.remove("active");
-        img.style.animation = "none";
+        img.classList.remove("active");    
+        // img.style.animation = "none";       
       });
+      
       sliderImages[currentSlide].classList.add("active");
       sliderImages[currentSlide].style.animation =
-        zoomPans[currentSlide];
+      zoomPans[currentSlide];
+      
+      setTimeout(() => {
+       let previousSlide = currentSlide - 1;
+      if(previousSlide < 0){
+        previousSlide = sliderImages.length -1
+      }
+      sliderImages[previousSlide].style.animation = "none"; 
+      }, 1500)
     };
 
     // this function will make automatic cycling reset everytime a button is clicked
