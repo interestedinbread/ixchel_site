@@ -64,9 +64,10 @@ let slideInterval;
             
           sliderImages.forEach(img => {
             img.classList.remove('active');
+            img.style.animation = "none";
           })
           sliderImages[currentSlide].classList.add('active');
-          
+          sliderImages[currentSlide].style.animation = "zoomPan 4s ease-in-out forwards";
         };
 
         // this function will make automatic cycling reset everytime a button is clicked
