@@ -42,6 +42,8 @@ export const setupNavlinks = () => {
     if (
       !navElement.contains(e.target) &&
       !toggleBtn.contains(e.target) &&
+      !navlinksContainer.contains(e.target) &&
+      !ixchelLogoContainer.contains(e.target) &&
       navlinksContainer.classList.contains("active")
     ) {
       toggleNav();
