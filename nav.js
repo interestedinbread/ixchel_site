@@ -4,6 +4,8 @@ export const setupNavlinks = () => {
     const menuBtn = document.querySelector(".menu-icon");
     const navHeight = document.querySelector('nav').getBoundingClientRect().height;
     const ixchelLogoContainer = document.querySelector('.ixchel-logo-container');
+    const toggleBtn = document.querySelector('.menu-icon');
+    const navElement = document.querySelector('nav');
 
     navlinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -32,6 +34,12 @@ export const setupNavlinks = () => {
             left: 0,
             top: 0
         });
+    })
+
+    document.addEventListener('click', (e) => {
+        if(!navElement.contains(e.target) && !toggleBtn.contains(e.target)){
+            toggleNav();
+        }
     })
 }
 
