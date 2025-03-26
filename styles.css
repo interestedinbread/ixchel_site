@@ -33,6 +33,12 @@ body {
     font-family: "Poppins"
 }
 
+html, body {
+    overscroll-behavior: none;
+    overflow-x: hidden;
+    height: 100%;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
