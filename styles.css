@@ -25,6 +25,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Poppins"
 }
@@ -73,7 +77,7 @@ nav.shrink {
 }
 
 .nav-links.active {
-    height: 120px;
+    height: 90px;
 }
 
 .menu-icon {
@@ -183,11 +187,11 @@ nav.shrink {
     /* animation: zoomPan 4s ease-in-out forwards; */
 }
 
-.slider-img:nth-child(1){
+.storefront-summer {
     object-position: 70% center;
 }
 
-.slider-img:nth-child(2){
+.storefront-winter {
     object-position: 5% center;
 }
 
