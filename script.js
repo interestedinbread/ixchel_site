@@ -32,6 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if (page === "home.html") {
         setupSlider();
         setupImgPanning();
+        initMap();
       }
     } catch (err) {
       console.error(err);
@@ -126,7 +127,26 @@ window.addEventListener("DOMContentLoaded", () => {
 
   menuBtn.addEventListener("click", toggleNav);
 
-  // set up showcase img scroll behavior if homepage is displayed
+  let map;
+
+  async function initMap() {
+    const position = { lat: 48.89015167706287, lng: -123.34707064079846 }
+
+    const { Map } = await google.maps.importLibrary("maps")
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker")
+
+    map = new Map(document.querySelector('.map-container'), {
+        zoom: 13,
+        center: position,
+        mapId: "1bd9688633cd9dea"
+    });
+
+    const marker = new AdvancedMarkerElement({
+        map: map,
+        position: position,
+        title: "Ixchel"
+    })
+  }
 });
 
 window.addEventListener("popstate", () => {
