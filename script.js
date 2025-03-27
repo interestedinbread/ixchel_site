@@ -1,6 +1,7 @@
 import { setupSlider } from "./sliderSetup.js";
 import { setupImgPanning } from "./imagePan.js";
 import { setupNavlinks } from "./nav.js";
+import { setupModal } from "./modal.js";
 
 const contentContainer = document.querySelector(".content-container");
 
@@ -19,6 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
         setupSlider();
         setupImgPanning();
         initMap();
+        setupModal();
       }
     } catch (err) {
       console.error(err);
