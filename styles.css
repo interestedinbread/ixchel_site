@@ -276,8 +276,10 @@ nav.shrink {
 .showcase-image {
     position: relative;
     width: 150%;
+    height: 100%;
     transform: translateX(-25%);
     transition: transform 0.2s ease-out;
+    object-fit: cover;
 }
 
 #beauty-products.showcase-image {
@@ -384,30 +386,25 @@ footer {
     overflow: hidden;
     border-radius: 5px;
     width: 95%;
-    height: 500px;
+    height: 400px;
     margin: auto;
     margin-left: 2.5%;
 }
 
 .modal-container.active {
-    display: block;
-    z-index: 20;
-}
-
-.modal-img-container {
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    touch-action: none;
+    z-index: 20;
 }
 
+
+
 .modal-image {
-    cursor: grab;
-    transform-origin: center center;
-    transition: transform 0.2s ease-out;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+
 }
 
 .overlay {
