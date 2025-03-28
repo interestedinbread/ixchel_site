@@ -25,6 +25,7 @@ export const setupModal = () => {
     const toggleModal = (e) => {
         modalContainer.classList.toggle('active');
         overlay.classList.toggle('active');
+        document.body.style.overflow = 'hidden';
         id = e.target.id;
 
         setupOverlayToggle();
@@ -38,6 +39,7 @@ export const setupModal = () => {
             imgTrackContainer.innerHTML = "";
             modalContainer.classList.remove('active');
             overlay.classList.remove('active');
+            document.body.style.overflow = "";
         })
     }
 
