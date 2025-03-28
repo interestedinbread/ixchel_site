@@ -10,9 +10,9 @@ const productPics = {
 export const setupModal = () => {
     const images = document.querySelectorAll('.showcase-image');
     const modalContainer = document.querySelector('.modal-container');
+    const imgTrackContainer = document.querySelector('.modal-img-track-container');
     const overlay = document.querySelector('.overlay');
     let id;
-    let imgCount = 0;
 
     // add modal toggle function to each showcase img
     images.forEach(img => {
@@ -29,12 +29,13 @@ export const setupModal = () => {
 
         setupOverlayToggle();
         displayModalImages();
+        setupImgSwiping();
     }
 
     // define logic for closing overlay and modal by clicking overlay
     const setupOverlayToggle = () => {
         overlay.addEventListener('click', () => {
-            modalContainer.innerHTML = "";
+            imgTrackContainer.innerHTML = "";
             modalContainer.classList.remove('active');
             overlay.classList.remove('active');
         })
@@ -42,11 +43,44 @@ export const setupModal = () => {
 
     // display modal images 
     const displayModalImages = () => {
-        modalContainer.innerHTML = `
-        <div class="modal-image-container">
-        <img class="modal-image" src="${productPics[id][imgCount]}">
-        </div>
-        `
+        productPics[id].forEach((imgUrl) => {
+            const modalImgContainer = document.createElement('div');
+            modalImgContainer.classList.add('modal-image-container');
+            modalImgContainer.innerHTML = `
+            <img class="modal-image" src="${imgUrl}">
+            `;
+            imgTrackContainer.append(modalImgContainer);
+        })
     }
 
+    // setup image swiping
+    const setupImgSwiping = () => {
+        let currentIndex = 0;
+        let startX = 0;
+        let endX = 0;
+
+        const updateSlide = () => {
+            const imageWidth = document.querySelector('.modal-image-container').offsetWidth;
+            imgTrackContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        }
+
+        imgTrackContainer.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        imgTrackContainer.addEventListener("touchmove", (e) => {
+            endX = e.touches[0].clientX;
+        });
+
+        imgTrackContainer.addEventListener("touchEnd", (e) => {
+            const diff = startX - endX;
+
+            if(diff > 50 && currentIndex < productPics[id].length -1){
+                currentIndexx ++;
+            } else if(diff < -50 && currentIndex > 0) {
+                currentIndex --;
+            }
+            updateSlide();
+        })
+    }
 }

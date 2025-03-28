@@ -396,19 +396,28 @@ footer {
     z-index: 20;
 }
 
+.modal-img-track-container {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    gap: 1px;
+    z-index: 19;
+    overflow: hidden;
+}
+
 .modal-image-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    object-fit: contain;
-    height: 400px;
+    height: 100%;
+    width: 95vw;
+    overflow: hidden;
 }
 
 .modal-image {
     height: 100%;
-    width: auto;
     object-fit: cover;
-
+    flex-shrink: 0;
 }
 
 .overlay {
