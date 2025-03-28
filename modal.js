@@ -31,7 +31,7 @@ export const setupModal = () => {
         displayModalImages();
     }
 
-    // define logic for closing closing overlay and modal by clicking overlay
+    // define logic for closing overlay and modal by clicking overlay
     const setupOverlayToggle = () => {
         overlay.addEventListener('click', () => {
             modalContainer.innerHTML = "";
@@ -43,36 +43,10 @@ export const setupModal = () => {
     // display modal images 
     const displayModalImages = () => {
         modalContainer.innerHTML = `
+        <div class="modal-image-container">
         <img class="modal-image" src="${productPics[id][imgCount]}">
+        </div>
         `
     }
 
-    // set up image drag and zoom feature 
-    // const setupImgDrag = () => {
-    //     const image = document.querySelector('.modal-image')
-    //     let scale = 1, posX = 0, posY = 0;
-    //     let isDragging = false, startX, startY;
-
-    //     image.addEventListener('wheel', (e) => {
-    //         e.preventDefault();
-    //         scale += e.deltaY * 0.001;
-    //         scale = Math.min(Math.max(1, scale), 3);
-    //         image.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-    //     })
-
-    //     image.addEventListener('mousedown', (e) => {
-    //         isDragging = true;
-    //         startX = e.clientX - posX;
-    //         startY = e.clientY - posY;
-    //     })
-
-    //     window.addEventListener('mousemove', (e) => {
-    //         if (!isDragging) return; 
-    //         posX = e.clientX - startX;
-    //         posY = e.clientY - startY;
-    //         image.style.transform = `translate(${posX}px, ${posY}px) `
-    //     });
-
-    //     window.addEventListener('mouseup', () => isDragging = false);
-    // }
 }

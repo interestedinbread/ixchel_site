@@ -392,13 +392,17 @@ footer {
 }
 
 .modal-container.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     z-index: 20;
 }
 
-
+.modal-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    height: 400px;
+}
 
 .modal-image {
     height: 100%;
