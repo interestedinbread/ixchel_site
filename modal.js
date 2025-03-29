@@ -63,25 +63,30 @@ export const setupModal = () => {
 
         const updateSlide = () => {
             const imageWidth = document.querySelector('.modal-image-container').offsetWidth;
+            console.log('Image width:', imageWidth)
             imgTrackContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
         }
 
         imgTrackContainer.addEventListener("touchstart", (e) => {
             startX = e.touches[0].clientX;
+            console.log("startX: ", startX);
         });
 
         imgTrackContainer.addEventListener("touchmove", (e) => {
             endX = e.touches[0].clientX;
+            console.log("endX: ", endX);
         });
 
-        imgTrackContainer.addEventListener("touchEnd", (e) => {
+        imgTrackContainer.addEventListener("touchend", () => {
             const diff = startX - endX;
+            console.log("difference: ", diff);
 
             if(diff > 50 && currentIndex < productPics[id].length -1){
-                currentIndexx ++;
+                currentIndex ++;
             } else if(diff < -50 && currentIndex > 0) {
                 currentIndex --;
             }
+            
             updateSlide();
         })
     }
