@@ -1,8 +1,8 @@
 const productPics = {
-    clothing: ["img/products/clothing.jpg", "img/products/hats.jpg"],
-    accessories: ["img/products/bracelets.jpg", "img/products/jewelry_2.jpg"],
-    beauty_products: ["img/products/soaps.jpg"],
-    miscellaneous: ["img/products/miscellaneous_items.jpg", "img/products/statue.jpg", "img/products/tree_candles.jpg"]
+    clothing: ["img/products/clothing.jpg", "img/products/hats.jpg", "img/products/clothing_2.jpg", "img/products/dresses.jpg", "img/products/clothing_6.jpg"],
+    accessories: ["img/products/bracelets.jpg", "img/products/jewelry_2.jpg", "img/products/jewelry_3.jpg", "img/products/jewelry_4.jpg"],
+    beauty_products: ["img/products/soaps.jpg", "img/products/body lotion.jpg", "img/products/essential oils.jpg", "img/products/soap and lotion.jpg"],
+    miscellaneous: ["img/products/miscellaneous_items.jpg", "img/products/statue.jpg", "img/products/tree_candles.jpg", "img/products/candles.jpg"]
 }
 
 // need to get all of this setup logic into one function. We were trying to reference variables outside the setup function but this doesn't work because the elements aren't loaded yet.
