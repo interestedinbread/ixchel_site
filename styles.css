@@ -440,3 +440,17 @@ footer {
 .overlay.active {
     display: block;
 }
+
+/* MEDIA QUERIES BEGIN BELOW */
+
+@media (max-width: 375px) {
+    #come-in.showcase-image {
+        object-position: 25px -200px;
+    }
+}
+
+@media (min-width: 480px) {
+    #come-in.showcase-image {
+        object-position: 25px -270px;
+    }
+}
