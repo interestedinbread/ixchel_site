@@ -25,7 +25,7 @@ export const setupModal = () => {
     const toggleModal = (e) => {
         modalContainer.classList.toggle('active');
         overlay.classList.toggle('active');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('no-scroll');
         id = e.target.id;
 
         setupOverlayToggle();
@@ -39,7 +39,7 @@ export const setupModal = () => {
             imgTrackContainer.innerHTML = "";
             modalContainer.classList.remove('active');
             overlay.classList.remove('active');
-            document.body.style.overflow = "";
+            document.body.classList.remove('no-scroll');
         })
     }
 
@@ -63,23 +63,19 @@ export const setupModal = () => {
 
         const updateSlide = () => {
             const imageWidth = document.querySelector('.modal-image-container').offsetWidth;
-            console.log('Image width:', imageWidth)
             imgTrackContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
         }
 
         imgTrackContainer.addEventListener("touchstart", (e) => {
             startX = e.touches[0].clientX;
-            console.log("startX: ", startX);
         });
 
         imgTrackContainer.addEventListener("touchmove", (e) => {
-            endX = e.touches[0].clientX;
-            console.log("endX: ", endX);
+            endX = e.touches[0].clientX; 
         });
 
         imgTrackContainer.addEventListener("touchend", () => {
-            const diff = startX - endX;
-            console.log("difference: ", diff);
+            const diff = startX - endX; 
 
             if(diff > 50 && currentIndex < productPics[id].length -1){
                 currentIndex ++;

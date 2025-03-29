@@ -31,7 +31,12 @@ html {
 
 body {
     font-family: "Poppins";
-    overflow-x: hidden;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    touch-action: none;
 }
 
 html, body {
@@ -400,6 +405,7 @@ footer {
     height: 100%;
     width: fit-content;
     display: flex;
+    transition: transform 0.3s ease-out;
     gap: 1px;
     z-index: 19;
     overflow: hidden;
