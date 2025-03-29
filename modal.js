@@ -12,8 +12,10 @@ export const setupModal = () => {
     const modalContainer = document.querySelector('.modal-container');
     const imgTrackContainer = document.querySelector('.modal-img-track-container');
     const overlay = document.querySelector('.overlay');
-    let currentIndex = 0;
+    let currentIndex;
     let id;
+    let startX = 0;
+    let endX = 0;
 
     // add modal toggle function to each showcase img
     images.forEach(img => {
@@ -28,6 +30,7 @@ export const setupModal = () => {
         overlay.classList.toggle('active');
         document.body.classList.add('no-scroll');
         id = e.target.id;
+        currentIndex = 0;
 
         setupOverlayToggle();
         displayModalImages();
@@ -37,6 +40,9 @@ export const setupModal = () => {
     // define logic for closing overlay and modal by clicking overlay
     const setupOverlayToggle = () => {
         overlay.addEventListener('click', () => {
+            imgTrackContainer.removeEventListener('touchstart', handleTouchStart);
+            imgTrackContainer.removeEventListener('touchmove', handleTouchMove);
+            imgTrackContainer.removeEventListener('touchend', handleTouchEnd);
             imgTrackContainer.innerHTML = "";
             modalContainer.classList.remove('active');
             overlay.classList.remove('active');
@@ -55,37 +61,43 @@ export const setupModal = () => {
             `;
             imgTrackContainer.append(modalImgContainer);
         })
+
+        updateSlide();
     }
 
     // setup image swiping
     const setupImgSwiping = () => {
-        
-        let startX = 0;
-        let endX = 0;
+    
+        imgTrackContainer.addEventListener("touchstart", handleTouchStart);
 
-        const updateSlide = () => {
-            const imageWidth = document.querySelector('.modal-image-container').offsetWidth;
-            imgTrackContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        imgTrackContainer.addEventListener("touchmove", handleTouchMove);
+
+        imgTrackContainer.addEventListener("touchend", handleTouchEnd);
+    }
+
+    const handleTouchStart = (e) => {
+        startX = e.touches[0].clientX;
+    }
+
+    const handleTouchMove = (e) => {
+        endX = e.touches[0].clientX;
+    }
+
+    const handleTouchEnd = () => {
+        const diff = startX - endX; 
+
+        if(diff > 50 && currentIndex < productPics[id].length -1){
+            currentIndex ++;
+        } else if(diff < -50 && currentIndex > 0) {
+            currentIndex --;
         }
+        
+        updateSlide();
+    }
 
-        imgTrackContainer.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        imgTrackContainer.addEventListener("touchmove", (e) => {
-            endX = e.touches[0].clientX; 
-        });
-
-        imgTrackContainer.addEventListener("touchend", () => {
-            const diff = startX - endX; 
-
-            if(diff > 50 && currentIndex < productPics[id].length -1){
-                currentIndex ++;
-            } else if(diff < -50 && currentIndex > 0) {
-                currentIndex --;
-            }
-            
-            updateSlide();
-        })
+    const updateSlide = () => {
+        const imageWidth = document.querySelector('.modal-image-container').offsetWidth;
+        imgTrackContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        console.log(currentIndex);
     }
 }
