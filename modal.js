@@ -12,6 +12,7 @@ export const setupModal = () => {
     const modalContainer = document.querySelector('.modal-container');
     const imgTrackContainer = document.querySelector('.modal-img-track-container');
     const overlay = document.querySelector('.overlay');
+    let currentIndex = 0;
     let id;
 
     // add modal toggle function to each showcase img
@@ -40,6 +41,7 @@ export const setupModal = () => {
             modalContainer.classList.remove('active');
             overlay.classList.remove('active');
             document.body.classList.remove('no-scroll');
+            currentIndex = 0;
         })
     }
 
@@ -57,7 +59,7 @@ export const setupModal = () => {
 
     // setup image swiping
     const setupImgSwiping = () => {
-        let currentIndex = 0;
+        
         let startX = 0;
         let endX = 0;
 
