@@ -42,6 +42,13 @@ body {
 html, body {
     overscroll-behavior: none;
     height: 100%;
+    /* overflow-x: hidden; */
+    width: 100%;
+}
+
+.content-container {
+    position: relative;
+    width: 100%;
 }
 
 nav {
@@ -155,7 +162,7 @@ nav.shrink {
 }
 
 .slider-container {
-    width: 105%;
+    width: 100%;
     height: 400px;
     overflow: hidden;
     position: relative;
@@ -176,7 +183,7 @@ nav.shrink {
         transform: scale(1) translate(0, 0);
     }
     100% {
-        transform: scale(1.015) translate(-20px, 3px)
+        transform: scale(1.05) translate(-7px, 3px)
     }
 }
 @keyframes zoomPan3{ 
