@@ -2,10 +2,14 @@ import { setupSlider } from "./sliderSetup.js";
 import { setupImgPanning } from "./imagePan.js";
 import { setupNavlinks } from "./nav.js";
 import { setupModal } from "./modal.js";
+import { removeSlider } from "./responsive.js";
 
 const contentContainer = document.querySelector(".content-container");
 
+// this function will load dynamic page content
 window.addEventListener("DOMContentLoaded", () => {
+
+  // fetch the page html
   const loadPage = async (page) => {
     try {
       const response = await fetch(page);
@@ -16,8 +20,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
       history.pushState({ page }, "", `#${page}`);
 
+      // if we're on the homepage, we run these setup functions
       if (page === "home.html") {
-        setupSlider();
+        // if we're on a device smaller than a laptop screen, we run the img slider setup
+        if(window.innerWidth < 1240){
+          setupSlider();
+        } else {
+          removeSlider();
+        }
         setupImgPanning();
         initMap();
         setupModal();
@@ -67,3 +77,9 @@ window.addEventListener("popstate", () => {
   const page = location.hash.replace("#", "") || "home.html";
   loadPage(page);
 });
+
+window.addEventListener("resize", () => {
+  if(window.innerWidth > 1240){
+    removeSlider();
+  }
+})
