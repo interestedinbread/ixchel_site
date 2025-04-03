@@ -1,3 +1,5 @@
+let bigScreen = false;
+
 export const removeSlider = () => {
     const sliderContainer = document.querySelector('.slider-container');
 
@@ -13,3 +15,4 @@ export const removeSlider = () => {
     </div>
     `;
 }
+

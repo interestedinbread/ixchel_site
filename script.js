@@ -81,5 +81,9 @@ window.addEventListener("popstate", () => {
 window.addEventListener("resize", () => {
   if(window.innerWidth > 1240){
     removeSlider();
+    // changeLayout();
   }
+  // if(window.innerWidth < 1240){
+  //   restoreLayout();
+  // }
 })
