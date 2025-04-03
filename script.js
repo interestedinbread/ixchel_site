@@ -1,10 +1,11 @@
-import { setupSlider } from "./sliderSetup.js";
+import { setupSlider, setupBigSlider } from "./sliderSetup.js";
 import { setupImgPanning } from "./imagePan.js";
 import { setupNavlinks } from "./nav.js";
 import { setupModal } from "./modal.js";
 import { removeSlider } from "./responsive.js";
 
 const contentContainer = document.querySelector(".content-container");
+let bigScreen;
 
 // this function will load dynamic page content
 window.addEventListener("DOMContentLoaded", () => {
@@ -25,8 +26,11 @@ window.addEventListener("DOMContentLoaded", () => {
         // if we're on a device smaller than a laptop screen, we run the img slider setup
         if(window.innerWidth < 1240){
           setupSlider();
+          bigScreen = false;
         } else {
           removeSlider();
+          setupBigSlider();
+          bigScreen = true;
         }
         setupImgPanning();
         initMap();
@@ -79,11 +83,12 @@ window.addEventListener("popstate", () => {
 });
 
 window.addEventListener("resize", () => {
-  if(window.innerWidth > 1240){
+  if(window.innerWidth > 1240 && !bigScreen){
     removeSlider();
-    // changeLayout();
+    setupBigSlider();
+    bigScreen = true;
+  } else if(window.innerWidth < 1240 && bigScreen === true){
+    setupSlider();
+    bigScreen = false;
   }
-  // if(window.innerWidth < 1240){
-  //   restoreLayout();
-  // }
 })

@@ -6,6 +6,7 @@ const zoomPans = [
 
   let currentSlide = 0;
   let slideInterval;
+  let setup = false;
 
 // this will set up the cycling images on the homepage of the site
   export const setupSlider = () => {
@@ -61,3 +62,19 @@ const zoomPans = [
     cycleSlide();
     resetInterval();
   };
+
+  export const setupBigSlider = () => {
+    const sliderContainer = document.querySelector('.slider-container')
+    const sliderContainerTwo = document.querySelector('.slider-container-2')
+
+    if(window.innerWidth > 1240 && setup === false){
+      setInterval(() => {
+        sliderContainer.classList.toggle('active');
+        sliderContainerTwo.classList.toggle('active');
+      
+      }, 4500);
+
+      setup = true;
+    }
+    
+  }
