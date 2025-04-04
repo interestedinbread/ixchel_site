@@ -1,8 +1,7 @@
-import { setupSlider, setupBigSlider } from "./sliderSetup.js";
+import { setupSlider, setupBigSlider, turnOffSlider } from "./sliderSetup.js";
 import { setupImgPanning } from "./imagePan.js";
 import { setupNavlinks } from "./nav.js";
 import { setupModal } from "./modal.js";
-import { removeSlider } from "./responsive.js";
 
 const contentContainer = document.querySelector(".content-container");
 let bigScreen;
@@ -28,7 +27,6 @@ window.addEventListener("DOMContentLoaded", () => {
           setupSlider();
           bigScreen = false;
         } else {
-          removeSlider();
           setupBigSlider();
           bigScreen = true;
         }
@@ -84,7 +82,7 @@ window.addEventListener("popstate", () => {
 
 window.addEventListener("resize", () => {
   if(window.innerWidth > 1240 && !bigScreen){
-    removeSlider();
+    turnOffSlider();
     setupBigSlider();
     bigScreen = true;
   } else if(window.innerWidth < 1240 && bigScreen === true){

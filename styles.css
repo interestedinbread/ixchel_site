@@ -199,7 +199,7 @@ nav.shrink {
     }
 }
 
-.slider-img {
+.slider-img, .slider-2-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -558,21 +558,21 @@ footer {
         opacity: 1;
     }
 
+    .chevron-container-left, .chevron-container-right {
+        display: none;
+    }
+
     .storefront-img-container {
         overflow: hidden;
         border-radius: 5px;
     }
 
-    .slider-img {
+    .slider-img, .slider-2-img {
         position: relative;
         width: 100%;
         object-fit: cover;
         opacity: 1;
         transition: opacity 0.5s ease-in-out;
-    }
-
-    .buddha-slider-img-container, .candles-slider-img-container, .clothing-slider-img-container {
-
     }
 
     .slider-container-2 div {
@@ -591,13 +591,13 @@ footer {
         grid-row-end: 2;
     }
 
-    .slider-img.candles, .slider-img.clothing-4, .slider-img.buddha {
+    .slider-2-img.candles, .slider-2-img.clothing-4, .slider-2-img.buddha {
         height: 100%;
         width: 100%;
         object-fit: cover;
     }
 
-    .slider-img.candles {
+    .slider-2-img.candles {
         object-position: 0px -100px;
     }
 

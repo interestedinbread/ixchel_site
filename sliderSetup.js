@@ -6,10 +6,11 @@ const zoomPans = [
 
   let currentSlide = 0;
   let slideInterval;
-  let setup = false;
+  let bigScreenSetup = false;
 
 // this will set up the cycling images on the homepage of the site
   export const setupSlider = () => {
+    
     // select slider images and buttons
     const sliderImages = document.querySelectorAll(".slider-img");
     const sliderBtns = document.querySelectorAll(".slider-container button");
@@ -67,14 +68,21 @@ const zoomPans = [
     const sliderContainer = document.querySelector('.slider-container')
     const sliderContainerTwo = document.querySelector('.slider-container-2')
 
-    if(window.innerWidth > 1240 && setup === false){
+    if(window.innerWidth > 1240 && bigScreenSetup === false){
       setInterval(() => {
         sliderContainer.classList.toggle('active');
         sliderContainerTwo.classList.toggle('active');
-      
       }, 4500);
+      bigScreenSetup = true;
+    } 
+  }
 
-      setup = true;
-    }
-    
+  export const turnOffSlider = () => {
+    const sliderImages = document.querySelectorAll(".slider-img");
+
+    sliderImages.forEach(img => {
+      img.style.animation = "";
+    })
+
+    clearInterval(slideInterval);
   }
