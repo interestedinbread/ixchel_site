@@ -13,6 +13,7 @@ export const setupModal = () => {
     const imgTrackContainer = document.querySelector('.modal-img-track-container');
     const overlay = document.querySelector('.overlay');
     const modalBtns = document.querySelectorAll('.modal-btn');
+    const closeBtn = document.querySelector('.modal-close-btn');
     let currentIndex;
     let id;
     let startX = 0;
@@ -36,6 +37,7 @@ export const setupModal = () => {
         modalBtns.forEach(btn => {
             btn.classList.toggle('active');
         })
+        closeBtn.classList.toggle('active');
 
         displayModalImages();
         setupImgSwiping();
@@ -43,22 +45,8 @@ export const setupModal = () => {
 
     // define logic for closing overlay and modal by clicking overlay
     const setupOverlayToggle = () => {
-        overlay.addEventListener('click', () => {
-            if(overlay.classList.contains('active')){
-                imgTrackContainer.removeEventListener('touchstart', handleTouchStart);
-                imgTrackContainer.removeEventListener('touchmove', handleTouchMove);
-                imgTrackContainer.removeEventListener('touchend', handleTouchEnd);
-                imgTrackContainer.innerHTML = "";
-                modalContainer.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-                modalBtns.forEach(btn => {
-                    btn.classList.toggle('active');
-                    })
-                currentIndex = 0;
-            }
-            
-        })
+        overlay.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModal);
     }
 
     // display modal images 
@@ -110,5 +98,45 @@ export const setupModal = () => {
         imgTrackContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
     }
 
+    const setupModalBtns = () => {
+        modalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault;
+                if(e.target.classList.contains('modal-left-btn')){
+                    currentIndex --;
+                    if(currentIndex < 0){
+                        currentIndex = productPics[id].length - 1;
+                    }
+                    updateSlide();
+                } else {
+                    currentIndex ++
+                    if(currentIndex > productPics[id].length - 1){
+                        currentIndex = 0;
+                    }
+                    updateSlide();
+                }
+
+            })
+        })
+    }
+
+    const closeModal = () => {
+        if(overlay.classList.contains('active')){
+            imgTrackContainer.removeEventListener('touchstart', handleTouchStart);
+            imgTrackContainer.removeEventListener('touchmove', handleTouchMove);
+            imgTrackContainer.removeEventListener('touchend', handleTouchEnd);
+            imgTrackContainer.innerHTML = "";
+            modalContainer.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            modalBtns.forEach(btn => {
+                btn.classList.toggle('active');
+                })
+            closeBtn.classList.toggle('active');
+            currentIndex = 0;
+        }
+    }
+
     setupOverlayToggle();
+    setupModalBtns();
 }

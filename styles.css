@@ -713,7 +713,7 @@ footer {
         margin-left: 2.5%;
     }
 
-    .modal-btn {
+    .modal-btn, .modal-close-btn {
         height: 50px;
         width: 50px;
         position: fixed;
@@ -723,23 +723,31 @@ footer {
         border: none;
     }
 
-    .modal-left-btn, .modal-right-btn {
+    .modal-left-btn, .modal-right-btn, .close-icon {
         height: 100%;
         width: 100%;
     }
 
-    .modal-btn.active {
+    .modal-btn.active, .modal-close-btn.active {
         display: block;
     }
 
     .modal-btn.left {
         top: 45%;
-        left: 10%;
+        left: 13%;
     }
 
     .modal-btn.right {
         top: 45%;
-        right: 10%;
+        right: 13%;
+    }
+
+    .modal-close-btn {
+        top: 15%;
+        left: 13%;
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: black;
     }
 
     .map-cable-bay-img-container {
