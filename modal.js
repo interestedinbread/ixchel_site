@@ -12,6 +12,7 @@ export const setupModal = () => {
     const modalContainer = document.querySelector('.modal-container');
     const imgTrackContainer = document.querySelector('.modal-img-track-container');
     const overlay = document.querySelector('.overlay');
+    const modalBtns = document.querySelectorAll('.modal-btn');
     let currentIndex;
     let id;
     let startX = 0;
@@ -32,7 +33,10 @@ export const setupModal = () => {
         id = e.target.id;
         currentIndex = 0;
 
-        setupOverlayToggle();
+        modalBtns.forEach(btn => {
+            btn.classList.toggle('active');
+        })
+
         displayModalImages();
         setupImgSwiping();
     }
@@ -40,14 +44,20 @@ export const setupModal = () => {
     // define logic for closing overlay and modal by clicking overlay
     const setupOverlayToggle = () => {
         overlay.addEventListener('click', () => {
-            imgTrackContainer.removeEventListener('touchstart', handleTouchStart);
-            imgTrackContainer.removeEventListener('touchmove', handleTouchMove);
-            imgTrackContainer.removeEventListener('touchend', handleTouchEnd);
-            imgTrackContainer.innerHTML = "";
-            modalContainer.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-            currentIndex = 0;
+            if(overlay.classList.contains('active')){
+                imgTrackContainer.removeEventListener('touchstart', handleTouchStart);
+                imgTrackContainer.removeEventListener('touchmove', handleTouchMove);
+                imgTrackContainer.removeEventListener('touchend', handleTouchEnd);
+                imgTrackContainer.innerHTML = "";
+                modalContainer.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+                modalBtns.forEach(btn => {
+                    btn.classList.toggle('active');
+                    })
+                currentIndex = 0;
+            }
+            
         })
     }
 
@@ -98,6 +108,7 @@ export const setupModal = () => {
     const updateSlide = () => {
         const imageWidth = document.querySelector('.modal-image-container').offsetWidth;
         imgTrackContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
-        console.log(currentIndex);
     }
+
+    setupOverlayToggle();
 }

@@ -212,9 +212,9 @@ nav.shrink {
     object-position: 70% center;
 }
 
-.storefront-winter {
-    object-position: 5% center;
-}
+/* .storefront-winter{
+    object-position: 60% center;
+} */
 
 .slider-img.active{
     opacity: 1;
@@ -537,24 +537,32 @@ footer {
 
 @media (min-width: 1240px) {
 
+    .slider-master-container {
+        position: relative;
+        height: 750px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 50px;
+    }
+
     .slider-container, .slider-container-2 {
         width: 75%;
         margin: 80px auto 25px;
-        height: 650px;
+        height: 100%;
         overflow: hidden;
-        position: relative;
-        /* display: grid; */
+        position: absolute;
+        top: 2%;
+        left: 12%;
+        display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 45% 55%;
         row-gap: 15px;
         column-gap: 15px;
         opacity: 0;
-        display: none;
-        
+        transition: opacity 0.8s ease-in-out;
     }
 
     .slider-container.active, .slider-container-2.active {
-        display: grid;
         opacity: 1;
     }
 
@@ -567,9 +575,18 @@ footer {
         border-radius: 5px;
     }
 
+    .storefront-no-sign {
+        object-position: 0% 10%;
+    }
+
+    .storefront-winter {
+        object-position: 0% 35%;
+    }
+
     .slider-img, .slider-2-img {
         position: relative;
         width: 100%;
+        height: 100%;
         object-fit: cover;
         opacity: 1;
         transition: opacity 0.5s ease-in-out;
@@ -601,10 +618,6 @@ footer {
         object-position: 0px -100px;
     }
 
-    /* .slider-img.clothing-4 {
-        object-position: ;
-    } */
-
     .clothing-slider-img-container {
         height: 100%;
         grid-row-start: 2;
@@ -612,13 +625,11 @@ footer {
     }
 
     .winter-grid-img-container {
+        height: 100%;
         grid-column-start: 1;
         grid-column-end: 3;
     } 
 
-    .winter-grid-img {
-        object-position: 0% 35%;
-    }
 
     .welcome-title {
         font-size: 3rem;
@@ -697,9 +708,38 @@ footer {
         overflow: hidden;
         border-radius: 5px;
         width: 95%;
-        height: 500px;
+        height: 700px;
         margin: auto;
         margin-left: 2.5%;
+    }
+
+    .modal-btn {
+        height: 50px;
+        width: 50px;
+        position: fixed;
+        display: none;
+        z-index: 20;
+        background: none;
+        border: none;
+    }
+
+    .modal-left-btn, .modal-right-btn {
+        height: 100%;
+        width: 100%;
+    }
+
+    .modal-btn.active {
+        display: block;
+    }
+
+    .modal-btn.left {
+        top: 45%;
+        left: 10%;
+    }
+
+    .modal-btn.right {
+        top: 45%;
+        right: 10%;
     }
 
     .map-cable-bay-img-container {
