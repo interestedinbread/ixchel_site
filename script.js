@@ -2,6 +2,7 @@ import { setupSlider, setupBigSlider, turnOffSlider } from "./sliderSetup.js";
 import { setupImgPanning } from "./imagePan.js";
 import { setupNavlinks } from "./nav.js";
 import { setupModal } from "./modal.js";
+import { setupParallax } from "./parallax.js";
 
 const contentContainer = document.querySelector(".content-container");
 let bigScreen;
@@ -42,6 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
   loadPage("home.html");
 
   setupNavlinks();
+  setupParallax();
 
   let map;
 
@@ -90,3 +92,4 @@ window.addEventListener("resize", () => {
     bigScreen = false;
   }
 })
+
