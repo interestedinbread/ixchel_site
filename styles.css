@@ -304,6 +304,7 @@ nav.shrink {
     transform: translateX(-25%);
     transition: transform 0.2s ease-out;
     object-fit: cover;
+    will-change: transform;
 }
 
 #beauty-products.showcase-image {
