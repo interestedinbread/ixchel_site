@@ -105,6 +105,7 @@ nav.shrink {
     border: none;
     margin-left: 10px;
     margin-top: 7px;
+    cursor: pointer;
     transition: transform 0.15s ease-in-out;
 }
 
@@ -115,6 +116,10 @@ nav.shrink {
 .ixchel-logo-container {
     display: flex;
     margin: 5px 10px;
+}
+
+.ixchel-logo-container:hover {
+    cursor: pointer;
 }
 
 .ixchel-logo {
@@ -477,9 +482,9 @@ footer {
 
 .parallax-scene {
     position: absolute;
-    bottom: 95px;
+    bottom: 50px;
     left: 0%;
-    height: 500px;
+    height: 700px;
     width: 100%;
     overflow: hidden;
     pointer-events: none;
