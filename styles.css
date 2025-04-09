@@ -677,14 +677,9 @@ footer {
         grid-row-end: 2;
     }
 
-    .slider-2-img.candles, .slider-2-img.clothing-4, .slider-2-img.buddha {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-
     .slider-2-img.candles {
-        object-position: 0px -100px;
+        object-position: 0px -5px;
+        height: 100%;
     }
 
     .clothing-slider-img-container {
@@ -716,12 +711,12 @@ footer {
     }
 
     #come-in.showcase-image {
-        object-position: 60px -390px;
+        object-position: 60px -300px;
     }
 
     #come-in.showcase-img-container {
-        height: 300px;
-        width: 800px;
+        height: 220px;
+        width: 600px;
         margin: 25px auto;
     }
 
@@ -830,7 +825,7 @@ footer {
 
     .map-container {
         height: 100%;
-        width: 40%;
+        width: 60%;
         border-radius: 5px;
         margin: 10px auto;
         margin-bottom: 50px;
@@ -890,9 +885,22 @@ footer {
         height: 100%;
         width: 100%;
     }
-
-    
-
-
 }
 
+@media (min-width: 1500px) {
+
+    .slider-2-img.candles {
+        object-position: 0px -100px;
+        height: 100%;
+    }
+
+    #come-in.showcase-image {
+        object-position: 60px -390px;
+    }
+
+    #come-in.showcase-img-container {
+        height: 300px;
+        width: 800px;
+        margin: 25px auto;
+    }
+}
