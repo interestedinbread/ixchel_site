@@ -545,6 +545,12 @@ footer {
     }
 }
 
+@media (max-width: 400px) {
+    #come-in.showcase-image {
+        object-position: 25px -220px;
+    }
+}
+
 @media (max-width: 434px) {
     #come-in.showcase-image {
         object-position: 25px -250px;
