@@ -9,7 +9,7 @@ export const setupImgPanning = () => {
 
         if (rect.top < windowHeight && rect.bottom > 0) {
           let progress = (windowHeight - rect.top) / windowHeight;
-          let moveX = Math.min(progress * 20, 20);
+          let moveX = Math.round(Math.min(progress * 20, 20));
 
           img.style.transform = `translateX(calc(-25% + ${moveX}px))`;
         }
