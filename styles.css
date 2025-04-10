@@ -540,21 +540,27 @@ footer {
 
 /* MEDIA QUERIES BEGIN BELOW */
 
-@media (max-width: 375px) {
+@media (min-width: 350px) {
+    #come-in.showcase-image {
+        object-position: 25px -180px;
+    }
+}
+
+@media (min-width: 375px) {
     #come-in.showcase-image {
         object-position: 25px -200px;
     }
 }
 
-@media (max-width: 400px) {
+@media (min-width: 400px) {
     #come-in.showcase-image {
         object-position: 25px -220px;
     }
 }
 
-@media (max-width: 434px) {
+@media (min-width: 434px) {
     #come-in.showcase-image {
-        object-position: 25px -250px;
+        object-position: 25px -240px;
     }
 }
 

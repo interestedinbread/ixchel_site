@@ -1,6 +1,18 @@
+
+function throttle(func, delay) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = new Date().getTime();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      func.apply(this, args);
+    }
+  };
+}
+
 // this will set up the horizontal image sliding for selection items on home page
 export const setupImgPanning = () => {
-    document.addEventListener("scroll", () => {
+    document.addEventListener("scroll", throttle(() => {
       const images = document.querySelectorAll(".showcase-image");
 
       images.forEach((img, index) => {
@@ -14,5 +26,5 @@ export const setupImgPanning = () => {
           img.style.transform = `translateX(calc(-25% + ${moveX}px))`;
         }
       });
-    });
+    }, 100));
   };
