@@ -680,6 +680,23 @@ footer {
 
 @media (min-width: 1240px) {
 
+    .nav-links {
+        margin-top: 0;
+        margin-left: 0;
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        width: 100%;
+        overflow: hidden;
+        background-color: rgb(94, 230, 79);
+        transition: height 0.2s ease-in-out;
+        z-index: 2;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
     .slider-master-container {
         position: relative;
         height: 750px;

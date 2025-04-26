@@ -1,17 +1,10 @@
 function throttle(func, delay) {
   let lastCall = 0;
-  let frameId = null;
-  
   return function (...args) {
     const now = new Date().getTime();
     if (now - lastCall >= delay) {
       lastCall = now;
-      if (frameId) {
-        cancelAnimationFrame(frameId);
-      }
-      frameId = requestAnimationFrame(() => {
-        func.apply(this, args);
-      });
+      func.apply(this, args);
     }
   };
 }
@@ -20,38 +13,33 @@ function throttle(func, delay) {
 export const setupImgPanning = () => {
   const images = document.querySelectorAll(".showcase-image");
   
-  // Add hardware acceleration hints
+  // Simple transform setup
   images.forEach(img => {
-    img.style.willChange = 'transform';
-    img.style.backfaceVisibility = 'hidden';
-    img.style.transform = 'translateZ(0)';
+    img.style.transform = 'translateX(-25%)';
   });
 
-  let ticking = false;
+  let lastScrollY = window.scrollY;
   
-  const updateImages = () => {
-    const windowHeight = window.innerHeight;
+  const handleScroll = throttle(() => {
+    const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - lastScrollY;
+    lastScrollY = currentScrollY;
     
-    images.forEach((img) => {
-      const rect = img.getBoundingClientRect();
-      
-      if (rect.top < windowHeight && rect.bottom > 0) {
-        let progress = (windowHeight - rect.top) / windowHeight;
-        // Limit the movement range to prevent extreme shifts
-        progress = Math.max(0, Math.min(1, progress));
-        let moveX = Math.round(Math.min(progress * 20, 20));
+    // Only update if we've scrolled a meaningful amount
+    if (Math.abs(scrollDelta) > 2) {
+      images.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
         
-        img.style.transform = `translate3d(calc(-25% + ${moveX}px), 0, 0)`;
-      }
-    });
-    
-    ticking = false;
-  };
-
-  document.addEventListener("scroll", throttle(() => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(updateImages);
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / windowHeight));
+          const moveX = Math.round(progress * 20);
+          
+          img.style.transform = `translateX(calc(-25% + ${moveX}px))`;
+        }
+      });
     }
-  }, 100));
+  }, 150); // Increased throttle delay
+
+  document.addEventListener("scroll", handleScroll);
 };
