@@ -1,5 +1,4 @@
 import { setupSlider, setupBigSlider, turnOffSlider } from "./sliderSetup.js";
-import { setupImgPanning } from "./imagePan.js";
 import { setupNavlinks } from "./nav.js";
 import { setupModal } from "./modal.js";
 import { setupParallax } from "./parallax.js";
@@ -31,7 +30,6 @@ window.addEventListener("DOMContentLoaded", () => {
           setupBigSlider();
           bigScreen = true;
         }
-        setupImgPanning();
         initMap();
         setupModal();
       }

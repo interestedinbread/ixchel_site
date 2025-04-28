@@ -75,6 +75,12 @@ nav.shrink {
     color: white;
     font-size: 1.1rem;
     font-weight: 500;
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    transform: scale(1.075);
 }
 
 .nav-links li {
@@ -299,30 +305,38 @@ nav.shrink {
 
 .showcase-image {
     position: relative;
-    width: 150%;
+    width: 100%;
     height: 100%;
-    transform: translateX(-25%);
-    transition: transform 0.2s ease-out;
     object-fit: cover;
-    will-change: transform;
+    transition: transform 0.2s ease-in-out;
+}
+
+.showcase-image:not(#come-in):hover {
+    transform: scale(1.04);
 }
 
 #beauty-products.showcase-image {
     position: relative;
-    width: 150%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: translateX(-25%);
-    transition: transform 0.2s ease-out;
 }
 
 #come-in.showcase-img-container {
     height: 150px;
     margin: 25px auto;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
 }
 
 #come-in.showcase-image {
-    object-position: 25px -230px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0px -120px;
+    transform: scale(1.1);
 }
 
 .selection-section h3, .map-h3 {
@@ -542,64 +556,57 @@ footer {
 
 @media (min-width: 350px) {
     #come-in.showcase-image {
-        object-position: 25px -180px;
+        object-position: 0px -100px;
+        transform: scale(1.1);
     }
 }
 
 @media (min-width: 375px) {
     #come-in.showcase-image {
-        object-position: 25px -200px;
+        object-position: 0px -110px;
+        transform: scale(1.1);
     }
 }
 
 @media (min-width: 400px) {
     #come-in.showcase-image {
-        object-position: 25px -220px;
+        object-position: 0px -120px;
+        transform: scale(1.1);
     }
 }
 
 @media (min-width: 434px) {
     #come-in.showcase-image {
-        object-position: 25px -240px;
+        object-position: 0px -140px;
+        transform: scale(1.1);
     }
 }
 
 @media (min-width: 480px) {
     #come-in.showcase-image {
-        object-position: 25px -270px;
+        object-position: 0px -150px;
+        transform: scale(1.1);
     }
 }
 
 @media (min-width: 500px) {
     #come-in.showcase-image {
-        object-position: 25px -300px;
-    }
-
-    #come-in.showcase-img-container {
-        height: 225px;
-        margin: 25px auto;
+        object-position: 0px -170px;
+        transform: scale(1.1);
     }
 }
 
 @media (min-width: 576px) {
     #come-in.showcase-image {
-        object-position: 35px -320px;
-    }
-
-    #come-in.showcase-img-container {
-        height: 225px;
-        margin: 25px auto;
+        object-position: 0px -180px;
+        transform: scale(1.1);
     }
 }
 
 @media (min-width: 640px) {
     #come-in.showcase-image {
-        object-position: 35px -390px;
-    }
-
-    #come-in.showcase-img-container {
-        height: 225px;
-        margin: 25px auto;
+        object-position: 0px -220px;
+        transform: scale(1.1);
     }
 }
 
@@ -615,7 +622,8 @@ footer {
     }
 
     #come-in.showcase-image {
-        object-position: 60px -425px;
+        object-position: 0px -240px;
+        transform: scale(1.1);
     }
 
     #come-in.showcase-img-container {
@@ -633,10 +641,8 @@ footer {
     
     .showcase-image {
         position: relative;
-        width: 150%;
+        width: 100%;
         height: 100%;
-        transform: translateX(-25%);
-        transition: transform 0.2s ease-out;
         object-fit: cover;
     }
 
@@ -656,7 +662,8 @@ footer {
 
 @media (min-width: 850px) {
     #come-in.showcase-image {
-        object-position: 60px -470px;
+        object-position: 0px -270px;
+        transform: scale(1.1);
     }
 
     #come-in.showcase-img-container {
@@ -667,7 +674,8 @@ footer {
 
 @media (min-width: 880px) {
     #come-in.showcase-image {
-        object-position: 60px -550px;
+        object-position: 0px -310px;
+        transform: scale(1.1);
     }
 
     #come-in.showcase-img-container {
@@ -682,15 +690,21 @@ footer {
 
     .nav-links {
         margin-top: 0;
-        margin-left: 0;
+        margin-left: 15px;
         display: flex;
         flex-direction: row;
         height: auto;
         width: 100%;
-        overflow: hidden;
+        overflow: visible;
         background-color: rgb(94, 230, 79);
         transition: height 0.2s ease-in-out;
         z-index: 2;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-links li {
+        margin: 0;
     }
 
     .menu-icon {
@@ -802,7 +816,8 @@ footer {
     }
 
     #come-in.showcase-image {
-        object-position: 60px -300px;
+        object-position: 0px -170px;
+        transform: scale(1.1);
     }
 
     #come-in.showcase-img-container {
@@ -848,10 +863,8 @@ footer {
     
     .showcase-image {
         position: relative;
-        width: 150%;
+        width: 100%;
         height: 100%;
-        transform: translateX(-25%);
-        transition: transform 0.2s ease-out;
         object-fit: cover;
     }
 
@@ -986,7 +999,8 @@ footer {
     }
 
     #come-in.showcase-image {
-        object-position: 60px -390px;
+        object-position: 0px -220px;
+        transform: scale(1.1);
     }
 
     #come-in.showcase-img-container {

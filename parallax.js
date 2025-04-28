@@ -16,8 +16,8 @@ export const setupParallax = () => {
             backTrees.style.transform = `translateY(${progress * 60}px)`;
             frontTrees.style.transform = `translateY(${progress * 120}px)`;
         } else {
-            backTrees.style.transform = `translateY(0)`
-            frontTrees.style.transform = `translateY(0)`
+            backTrees.style.transform = `translateY(0)`;
+            frontTrees.style.transform = `translateY(0)`;
         }
     })
 }

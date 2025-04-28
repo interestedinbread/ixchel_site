@@ -19,11 +19,13 @@ export const setupModal = () => {
     let startX = 0;
     let endX = 0;
 
-    // add modal toggle function to each showcase img
+    // add modal toggle function to each showcase img except the "come in" image
     images.forEach(img => {
-        img.addEventListener('click', (e) => {
-            toggleModal(e)
-        })
+        if (img.id !== 'come-in') {
+            img.addEventListener('click', (e) => {
+                toggleModal(e)
+            })
+        }
     })
 
     // define logic for displaying modal on toggle

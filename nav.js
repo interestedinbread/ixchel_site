@@ -12,15 +12,18 @@ export const setupNavlinks = () => {
   navlinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      toggleNav();
       const id = e.target.id.slice(1);
-
       const targetElement = document.getElementById(id);
       let position = targetElement.offsetTop - navHeight;
       window.scrollTo({
         left: 0,
         top: position,
       });
+
+      // Only toggle nav menu on smaller screens
+      if (window.innerWidth < 1240) {
+        toggleNav();
+      }
     });
   });
 
