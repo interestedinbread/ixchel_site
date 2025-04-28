@@ -444,7 +444,7 @@ footer {
     position: fixed;
     display: none;
     z-index: 20;
-    background: none;
+    background: rgb(94, 230, 79);
     border: none;
 }
 
@@ -506,9 +506,9 @@ footer {
 
 .parallax-scene {
     position: absolute;
-    bottom: 50px;
+    bottom: 80px;
     left: 0%;
-    height: 700px;
+    height: 900px;
     width: 100%;
     overflow: hidden;
     pointer-events: none;
@@ -516,18 +516,20 @@ footer {
 
 .parallax-scene .layer-1 {
     position: absolute;
-    bottom: 0%;
+    top: -100px;
     left: 0%;
-    height: 100%;
+    height: 1100px;
     width: 100%;
     z-index: -2;
+    transform: scale(0.6);
+    transform-origin: center bottom;
 }
 
 .parallax-scene .layer-2 {
     position: absolute;
-    bottom: 0%;
+    top: -400px;
     left: 0%;
-    height: 100%;
+    height: 1100px;
     width: 100%;
     z-index: -1;
 }
@@ -887,7 +889,7 @@ footer {
         position: fixed;
         display: none;
         z-index: 20;
-        background: none;
+        background: rgb(94, 230, 79);
         border: none;
     }
 
@@ -897,6 +899,9 @@ footer {
     }
 
     .modal-btn.active, .modal-close-btn.active {
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: rgb(94, 230, 79);
         display: block;
     }
 
@@ -913,9 +918,6 @@ footer {
     .modal-close-btn {
         top: 15%;
         left: 13%;
-        border: 2px solid white;
-        border-radius: 5px;
-        background-color: black;
     }
 
     .map-cable-bay-img-container {
