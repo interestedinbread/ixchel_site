@@ -31,7 +31,7 @@ html {
 
 body {
     font-family: "Poppins";
-    background-color: rgb(225, 246, 254);
+    background-color: rgb(255, 253, 245);
 }
 
 .no-scroll {
@@ -987,16 +987,6 @@ footer {
         height: 700px;
         margin: auto;
         margin-left: 2.5%;
-    }
-
-    .modal-btn, .modal-close-btn {
-        height: 50px;
-        width: 50px;
-        position: fixed;
-        display: none;
-        z-index: 20;
-        background: rgb(94, 230, 79);
-        border: none;
     }
 
     .modal-left-btn, .modal-right-btn, .close-icon {

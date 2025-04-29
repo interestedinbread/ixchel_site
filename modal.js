@@ -18,6 +18,8 @@ export const setupModal = () => {
     let id;
     let startX = 0;
     let endX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
 
     // add modal toggle function to each showcase img except the "come in" image
     images.forEach(img => {
@@ -77,10 +79,20 @@ export const setupModal = () => {
 
     const handleTouchStart = (e) => {
         startX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
     }
 
     const handleTouchMove = (e) => {
         endX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
+        
+        // Calculate vertical movement
+        const verticalDiff = touchEndY - touchStartY;
+        
+        // If swiping down more than 50px, close the modal
+        if (verticalDiff > 50) {
+            closeModal();
+        }
     }
 
     const handleTouchEnd = () => {
@@ -136,6 +148,8 @@ export const setupModal = () => {
                 })
             closeBtn.classList.toggle('active');
             currentIndex = 0;
+            modalContainer.removeEventListener('touchstart', handleTouchStart);
+            modalContainer.removeEventListener('touchmove', handleTouchMove);
         }
     }
 
