@@ -14,6 +14,7 @@ export const setupModal = () => {
     const overlay = document.querySelector('.overlay');
     const modalBtns = document.querySelectorAll('.modal-btn');
     const closeBtn = document.querySelector('.modal-close-btn');
+    const swipeContainer = document.querySelector('.modal-swipe-container');
     let currentIndex;
     let id;
     let startX = 0;
@@ -42,6 +43,11 @@ export const setupModal = () => {
             btn.classList.toggle('active');
         })
         closeBtn.classList.toggle('active');
+        
+        // Only show swipe container on screens smaller than 1240px
+        if (window.innerWidth < 1240) {
+            swipeContainer.classList.toggle('active');
+        }
 
         displayModalImages();
         setupImgSwiping();
@@ -144,9 +150,10 @@ export const setupModal = () => {
             overlay.classList.remove('active');
             document.body.classList.remove('no-scroll');
             modalBtns.forEach(btn => {
-                btn.classList.toggle('active');
-                })
-            closeBtn.classList.toggle('active');
+                btn.classList.remove('active');
+            })
+            closeBtn.classList.remove('active');
+            swipeContainer.classList.remove('active');
             currentIndex = 0;
             modalContainer.removeEventListener('touchstart', handleTouchStart);
             modalContainer.removeEventListener('touchmove', handleTouchMove);

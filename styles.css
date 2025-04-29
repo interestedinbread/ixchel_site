@@ -439,13 +439,27 @@ footer {
 }
 
 .modal-btn, .modal-close-btn {
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     position: fixed;
     display: none;
     z-index: 20;
     background: rgb(94, 230, 79);
     border: none;
+}
+
+.modal-close-btn.active {
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: rgb(94, 230, 79);
+    display: block;
+    top: 20%;
+    left: 10%;
+}
+
+.close-icon {
+    height: 100%;
+    width: 100%;
 }
 
 .modal-container.active {
@@ -995,6 +1009,8 @@ footer {
     }
 
     .modal-btn.active, .modal-close-btn.active {
+        height: 50px;
+        width: 50px;
         border: 2px solid white;
         border-radius: 5px;
         background-color: rgb(94, 230, 79);
@@ -1217,4 +1233,37 @@ footer {
 .about-section-social .fb-btn, .about-section-social .ig-btn,
 .fb-btn, .ig-btn {
     cursor: pointer;
+}
+
+.modal-swipe-container {
+    position: fixed;
+    bottom: calc(20% - 15px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 21;
+    display: none;
+    text-align: center;
+}
+
+.modal-swipe-container.active {
+    display: block;
+}
+
+.modal-swipe-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.modal-swipe-text {
+    color: white;
+    font-family: "Poppins";
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+@media (min-width: 1240px) {
+    .modal-swipe-container {
+        display: none;
+    }
 }
