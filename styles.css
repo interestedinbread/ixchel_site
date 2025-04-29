@@ -31,6 +31,7 @@ html {
 
 body {
     font-family: "Poppins";
+    background-color: rgb(225, 246, 254);
 }
 
 .no-scroll {
@@ -515,13 +516,11 @@ footer {
 
 .parallax-scene .layer-1 {
     position: absolute;
-    top: -100px;
+    top: -265px;
     left: 0%;
     height: 1100px;
     width: 100%;
     z-index: -2;
-    transform: scale(0.6);
-    transform-origin: center bottom;
 }
 
 .parallax-scene .layer-2 {
@@ -536,11 +535,13 @@ footer {
 .parallax-layer-1-img {
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: -20%;
+    width: 150%;
     height: 100%;
     object-fit: cover;
     will-change: transform;
+    transform: scale(0.8);
+    transform-origin: center bottom;
 }
 
 .parallax-layer-2-img {
