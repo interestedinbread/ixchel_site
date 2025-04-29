@@ -1218,3 +1218,13 @@ footer {
         height: 40px;
     }
 }
+
+.about-section-social .fb-link, .about-section-social .ig-link,
+.fb-link, .ig-link {
+    cursor: pointer;
+}
+
+.about-section-social .fb-btn, .about-section-social .ig-btn,
+.fb-btn, .ig-btn {
+    cursor: pointer;
+}
