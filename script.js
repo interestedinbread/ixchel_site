@@ -2,6 +2,7 @@ import { setupSlider, setupBigSlider, turnOffSlider } from "./sliderSetup.js";
 import { setupNavlinks } from "./nav.js";
 import { setupModal } from "./modal.js";
 import { setupParallax } from "./parallax.js";
+import { setupImagePanning, cleanupImagePanning } from "./imgPan.js";
 
 const contentContainer = document.querySelector(".content-container");
 let bigScreen;
@@ -32,6 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         initMap();
         setupModal();
+        setupImagePanning();
       }
     } catch (err) {
       console.error(err);
@@ -65,6 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// this will shrink the navbar when the user scrolls down
 window.addEventListener("scroll", function () {
   const navbar = document.querySelector("nav");
 
@@ -80,6 +83,7 @@ window.addEventListener("popstate", () => {
   loadPage(page);
 });
 
+// this will switch the image slider and image grid on screen resize
 window.addEventListener("resize", () => {
   if(window.innerWidth > 1240 && !bigScreen){
     turnOffSlider();
@@ -89,5 +93,7 @@ window.addEventListener("resize", () => {
     setupSlider();
     bigScreen = false;
   }
+  cleanupImagePanning();
+  setupImagePanning();
 })
 

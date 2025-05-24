@@ -26,8 +26,7 @@ const zoomPans = [
       }
 
       sliderImages.forEach((img) => {
-        img.classList.remove("active");    
-        // img.style.animation = "none";       
+        img.classList.remove("active");           
       });
       
       sliderImages[currentSlide].classList.add("active");
